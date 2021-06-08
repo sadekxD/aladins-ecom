@@ -1,0 +1,95 @@
+.detail-container {
+	margin-top: 20px;
+
+	.product-detail {
+		.product-info {
+			padding: 1rem 0.5rem;
+
+			.info-title {
+				font-size: 1.5rem;
+				font-weight: 400;
+			}
+
+			.info-detail-wrapper {
+				margin-top: 1.4rem;
+				.info-header {
+					font-weight: 500;
+				}
+
+				.info-detail {
+					margin-top: 0.6rem;
+				}
+			}
+		}
+
+		.seller-info {
+			margin-top: 16px;
+			.info-header {
+				font-weight: 500;
+				margin-bottom: 1.4rem;
+			}
+
+			.avatar-wrapper {
+				margin-right: 10px;
+			}
+
+			.name {
+				font-weight: 500;
+			}
+
+			.rating-wrapper {
+				margin-top: 0.5rem;
+			}
+		}
+
+		.product-variant {
+			margin-top: 2rem;
+			h6 {
+				font-weight: 600;
+				margin-bottom: 6px;
+			}
+
+			.picker {
+				width: 160px;
+			}
+		}
+
+		.extra-info {
+			margin-top: 10px;
+		}
+
+		.price-info {
+			margin-top: 1rem;
+			.price {
+				font-size: 40px;
+				font-weight: 600;
+				color: #000;
+				span {
+					font-size: 42px;
+				}
+			}
+
+			.pre-price {
+				font-size: 38px;
+				margin-top: 6px;
+				margin-left: 10px;
+				font-weight: 600;
+				text-decoration: line-through;
+				color: rgba(0, 0, 0, 0.3);
+			}
+		}
+
+		.tag-list {
+			margin-top: 1.2rem;
+			.tag {
+				font-weight: 600;
+				font-size: 14px;
+				padding: 0.2rem 1rem;
+			}
+		}
+
+		.date-info {
+			margin-top: 1rem;
+		}
+	}
+}

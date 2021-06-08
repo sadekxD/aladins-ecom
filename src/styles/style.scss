@@ -1,0 +1,79 @@
+@import "./navbar";
+@import "./cards";
+@import "./forms";
+@import "./containers";
+@import "./detail";
+
+body {
+	background-color: #fafafa;
+	color: #000;
+	font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 115%;
+}
+
+.mr-2 {
+	margin-right: 4px;
+}
+
+.font-sm {
+	font-size: 13px;
+}
+
+.rs-picker-menu {
+	z-index: 10000;
+}
+
+.variant-row {
+	margin-top: 10px;
+	border: none;
+	.rs-radio-checked {
+		border: 2px solid rgba(0, 0, 0, 0.3);
+		border-radius: 4px;
+	}
+
+	.rs-radio-checker {
+		label {
+			padding: 2px 3px;
+		}
+	}
+}
+
+.thumb {
+	height: 50;
+	width: 50;
+	object-fit: cover;
+}
+
+.rs-picker-search-input {
+	width: 300px;
+}
+
+a {
+	color: black;
+}
+
+.my-masonry-grid {
+	display: -webkit-box; /* Not needed if autoprefixing */
+	display: -ms-flexbox; /* Not needed if autoprefixing */
+	display: flex;
+	margin-left: -6px; /* gutter size offset */
+	width: auto;
+}
+.my-masonry-grid_column {
+	padding-left: 6px; /* gutter size */
+	background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div {
+	/* change div to reference your elements you put in <Masonry> */
+	margin-bottom: 6px;
+}
