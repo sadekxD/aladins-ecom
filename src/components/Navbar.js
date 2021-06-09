@@ -12,7 +12,7 @@ import {
 	Row,
 	Col,
 } from "rsuite";
-import FilterDropdown from "./FilterPopper";
+import FilterDropdown from "./popper/FilterPopper";
 
 const NavbarC = () => {
 	const [searchValue, setSearchValue] = useState({ search: "" });

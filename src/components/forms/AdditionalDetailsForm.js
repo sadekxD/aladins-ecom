@@ -8,6 +8,7 @@ import {
 	ControlLabel,
 	FormGroup,
 	SelectPicker,
+	Schema,
 } from "rsuite";
 
 const items = [
@@ -51,43 +52,25 @@ const items = [
 		value: "Travon",
 		role: "Developer",
 	},
-	{
-		label: "Vincenza",
-		value: "Vincenza",
-		role: "Developer",
-	},
-	{
-		label: "Dominic",
-		value: "Dominic",
-		role: "Developer",
-	},
-	{
-		label: "Pearlie",
-		value: "Pearlie",
-		role: "Guest",
-	},
-	{
-		label: "Tyrel",
-		value: "Tyrel",
-		role: "Guest",
-	},
-	{
-		label: "Jaylen",
-		value: "Jaylen",
-		role: "Guest",
-	},
-	{
-		label: "Rogelio",
-		value: "Rogelio",
-		role: "Guest",
-	},
 ];
+
+const { StringType, NumberType } = Schema.Types;
+
+const model = Schema.Model({
+	regular_price: NumberType().isInteger("It can only be an integer"),
+	sell_price: NumberType()
+		.isInteger("It can only be an integer")
+		.isRequired("This field is required."),
+	availability: StringType().isRequired("This field is required."),
+});
 
 const AdditionalDetailsForm = ({ formdata, setFormdata }) => {
 	return (
 		<Form
 			fluid
 			style={{ padding: "2rem 0" }}
+			model={model}
+			formValue={formdata}
 			onChange={(formValue) => {
 				setFormdata({ ...formdata, ...formValue });
 			}}
@@ -125,7 +108,7 @@ const AdditionalDetailsForm = ({ formdata, setFormdata }) => {
 						<FormGroup>
 							<ControlLabel>Availability</ControlLabel>
 							<FormControl
-								name="avalability"
+								name="availability"
 								accepter={SelectPicker}
 								searchable={false}
 								style={{ width: "100%" }}

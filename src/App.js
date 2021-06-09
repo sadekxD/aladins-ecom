@@ -18,6 +18,7 @@ import Checkout from "./pages/Checkout";
 import WishList from "./pages/WishList";
 import SearchResult from "./pages/SearchResult";
 import FilterResult from "./pages/FilterResult";
+import CategoryResult from "./pages/CategoryResult";
 import Profile from "./pages/Profile";
 
 const App = () => {
@@ -49,6 +50,9 @@ const App = () => {
 				</Route>
 				<Route exact path="/filter">
 					<FilterResult />
+				</Route>
+				<Route exact path="/category">
+					<CategoryResult />
 				</Route>
 				<Route exact path="/profile">
 					<Profile />

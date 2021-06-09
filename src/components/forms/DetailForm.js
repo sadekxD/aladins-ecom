@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
 	Grid,
 	Row,
@@ -10,6 +10,7 @@ import {
 	HelpBlock,
 	SelectPicker,
 	TagPicker,
+	Schema,
 } from "rsuite";
 
 const items = [
@@ -48,48 +49,26 @@ const items = [
 		value: "Julius",
 		role: "Developer",
 	},
-	{
-		label: "Travon",
-		value: "Travon",
-		role: "Developer",
-	},
-	{
-		label: "Vincenza",
-		value: "Vincenza",
-		role: "Developer",
-	},
-	{
-		label: "Dominic",
-		value: "Dominic",
-		role: "Developer",
-	},
-	{
-		label: "Pearlie",
-		value: "Pearlie",
-		role: "Guest",
-	},
-	{
-		label: "Tyrel",
-		value: "Tyrel",
-		role: "Guest",
-	},
-	{
-		label: "Jaylen",
-		value: "Jaylen",
-		role: "Guest",
-	},
-	{
-		label: "Rogelio",
-		value: "Rogelio",
-		role: "Guest",
-	},
 ];
+
+const { StringType, ArrayType, NumberType } = Schema.Types;
+
+const model = Schema.Model({
+	title: StringType().isRequired("This field is required"),
+	category: StringType().isRequired("This field is required."),
+	colors: ArrayType().unrepeatable("Cannot repeat same variant."),
+	sizes: ArrayType().unrepeatable("Cannot repeat same variant."),
+	tags: ArrayType().unrepeatable("Cannot repeat same variant."),
+	product_condition: StringType().isRequired("This field is required"),
+});
 
 const DetailForm = ({ formdata, setFormdata }) => {
 	return (
 		<Form
 			fluid
 			style={{ padding: "2rem 0" }}
+			model={model}
+			formValue={formdata}
 			onChange={(formValue) => {
 				setFormdata({ ...formdata, ...formValue });
 			}}

@@ -17,7 +17,7 @@ import {
 	InputGroup,
 	SelectPicker,
 } from "rsuite";
-import PreventOverflowContainer from "../utils/PrevenOverflowContainer";
+import PreventOverflowContainer from "../../utils/PrevenOverflowContainer";
 
 const items = [
 	{
@@ -63,7 +63,11 @@ const FilterPopper = ({ ...rest }) => {
 				>
 					<FormGroup style={{ padding: "0 5px" }}>
 						<ControlLabel>Location</ControlLabel>
-						<FormControl name="location" placeholder="Location" />
+						<FormControl
+							value={filterValue.location}
+							name="location"
+							placeholder="Location"
+						/>
 					</FormGroup>
 					<Grid fluid>
 						<Row>
@@ -90,7 +94,7 @@ const FilterPopper = ({ ...rest }) => {
 											}
 											setFilterValue({
 												...filterValue,
-												range: [nextValue, end],
+												range: [parseInt(nextValue), parseInt(end)],
 											});
 										}}
 									/>
@@ -104,9 +108,10 @@ const FilterPopper = ({ ...rest }) => {
 											if (start > nextValue) {
 												return;
 											}
+
 											setFilterValue({
 												...filterValue,
-												range: [start, nextValue],
+												range: [parseInt(start), parseInt(nextValue)],
 											});
 										}}
 									/>
@@ -121,6 +126,7 @@ const FilterPopper = ({ ...rest }) => {
 								<FormControl
 									name="condition"
 									accepter={SelectPicker}
+									value={filterValue.condition}
 									data={items}
 									searchable={false}
 									container={getContainer}

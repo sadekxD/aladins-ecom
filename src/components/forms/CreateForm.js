@@ -3,6 +3,7 @@ import { Grid, Row, Col, Steps, ButtonGroup, Button } from "rsuite";
 import DetailForm from "./DetailForm";
 import ImageUploader from "./Uploader";
 import AdditionalDetailsForm from "./AdditionalDetailsForm";
+import Review from "../Review";
 
 const CreateForm = () => {
 	const [step, setStep] = useState(0);
@@ -59,11 +60,15 @@ const CreateForm = () => {
 						/>
 					</Col>
 					<Col xs={24} style={{ padding: "1rem .6rem" }}>
-						<ButtonGroup>
+						<ButtonGroup style={{ float: "right" }}>
 							<Button onClick={onPrevious} disabled={step === 0}>
 								Previous
 							</Button>
-							<Button onClick={onNext} disabled={step === 3}>
+							<Button
+								onClick={onNext}
+								appearance="primary"
+								disabled={step === 3}
+							>
 								Next
 							</Button>
 						</ButtonGroup>
@@ -79,13 +84,13 @@ const ProductInfoForm = ({ step, formdata, setFormdata }) => {
 		case 0:
 			return <DetailForm formdata={formdata} setFormdata={setFormdata} />;
 		case 1:
-			return <ImageUploader />;
+			return <ImageUploader formdata={formdata} setFormdata={setFormdata} />;
 		case 2:
 			return (
 				<AdditionalDetailsForm formdata={formdata} setFormdata={setFormdata} />
 			);
 		default:
-			return <div></div>;
+			return <Review formdata={formdata} />;
 	}
 };
 

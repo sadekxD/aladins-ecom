@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Uploader, Icon } from "rsuite";
 
-const ImageUploader = () => {
-	const [file, setFile] = useState([]);
-
+const ImageUploader = ({ formdata, setFormdata }) => {
 	return (
 		<Form fluid>
 			<Uploader
-				action="//jsonplaceholder.typicode.com/posts/"
+				autoUpload={false}
 				draggable
-				maxPreviewFileSize={343535463464646}
+				removable={true}
+				accept="Image/*"
+				onChange={(file) =>
+					setFormdata({
+						...formdata,
+						images: [...file],
+					})
+				}
 			>
 				<div
 					style={{

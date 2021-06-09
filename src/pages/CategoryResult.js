@@ -4,31 +4,33 @@ import { dummyData } from "../data/Products";
 import ProductList from "../components/ProductList";
 import NoResult from "../components/NoResult";
 
-const SearchResult = () => {
+const CategoryResult = () => {
 	const location = useLocation();
+
 	const useQuery = () => {
 		return new URLSearchParams(location.search);
 	};
 
 	const query = useQuery();
 
-	const searchedResult = dummyData.filter(
-		(item) =>
-			item.title.toLowerCase().search(query.get("search").toLowerCase()) != -1
+	const category = query.get("category"); // Category
+
+	const categorizedResult = dummyData.filter(
+		(item) => item.category.toLowerCase() === category.toLocaleLowerCase()
 	);
 
 	return (
 		<div>
-			{searchedResult.length !== 0 ? (
+			{categorizedResult.length !== 0 ? (
 				<ProductList
-					header={`Search result for "${query.get("search")}"`}
-					data={searchedResult}
+					header={`Category-"${category}"`}
+					data={categorizedResult}
 				/>
 			) : (
-				<NoResult header={`Search result for "${query.get("search")}"`} />
+				<NoResult header={`Category-"${category}"`} />
 			)}
 		</div>
 	);
 };
 
-export default SearchResult;
+export default CategoryResult;

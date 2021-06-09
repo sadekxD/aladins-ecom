@@ -15,27 +15,25 @@ const ProductList = ({ header, data = [] }) => {
 		<div>
 			<div className="container product-list-container">
 				<h5 className="header">{header}</h5>
-				{/* <Grid style={{ margin: "0 auto" }} fluid>
-					<Row>
-						{data.map((item, i) => (
-							<Col key={i} xs={12} sm={12} md={8} lg={6} style={{ padding: 4 }}>
-								<div className="product-wrapper">
-									<ProductCard price={200} pre_price={220} id={item} />
-								</div>
-							</Col>
-						))}
-					</Row>
-				</Grid> */}
+
 				<Masonry
 					breakpointCols={breakpointColumnsObj}
 					className="my-masonry-grid"
 					columnClassName="my-masonry-grid_column"
 				>
-					{data.map((item, i) => (
-						<div className="product-wrapper">
-							<ProductCard price={200} pre_price={220} id={item} />
-						</div>
-					))}
+					{data.map((item) => {
+						return (
+							<div key={item.id} className="product-wrapper">
+								<ProductCard
+									id={item.id}
+									title={item.title}
+									image={item.images[Math.floor(Math.random() * 3)]}
+									price={item.sell_price}
+									pre_price={item.regular_price}
+								/>
+							</div>
+						);
+					})}
 				</Masonry>
 			</div>
 		</div>

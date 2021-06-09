@@ -10,9 +10,26 @@ import {
 	ControlLabel,
 	HelpBlock,
 	Button,
+	Schema,
 } from "rsuite";
 
-const EditCheckoutPopper = ({
+const { StringType, NumberType } = Schema.Types;
+
+const model = Schema.Model({
+	username: StringType().isRequired("This field is required"),
+	email: StringType()
+		.isEmail("Please enter a valid email address.")
+		.isRequired("This field is required."),
+	address: StringType().isRequired("This field is required."),
+	phone_number: NumberType()
+		.pattern(
+			/^\s*(?:\+?(\d{1,3}))?[- (]*(\d{3})[- )]*(\d{3})[- ]*(\d{4})(?: *[x/#]{1}(\d+))?\s*$/,
+			"Please enter a legal character."
+		)
+		.isRequired("This field is required."),
+});
+
+const EditCheckoutModal = ({
 	show,
 	setShow,
 	checkoutInfo,
@@ -34,6 +51,8 @@ const EditCheckoutPopper = ({
 				</Modal.Header>
 				<Modal.Body>
 					<Form
+						model={model}
+						formValue={checkoutInfo}
 						fluid
 						onChange={(val) => setCheckoutInfo({ ...checkoutInfo, ...val })}
 					>
@@ -59,7 +78,6 @@ const EditCheckoutPopper = ({
 										<FormControl
 											name="address"
 											rows={5}
-											name="textarea"
 											componentClass="textarea"
 										/>
 										<HelpBlock>Required</HelpBlock>
@@ -77,7 +95,7 @@ const EditCheckoutPopper = ({
 					</Form>
 				</Modal.Body>
 				<Modal.Footer>
-					<Button onClick={close} appearance="ghost">
+					<Button appearance="ghost" onClick={close}>
 						Done
 					</Button>
 				</Modal.Footer>
@@ -86,4 +104,4 @@ const EditCheckoutPopper = ({
 	);
 };
 
-export default EditCheckoutPopper;
+export default EditCheckoutModal;

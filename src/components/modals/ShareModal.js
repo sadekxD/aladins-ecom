@@ -11,6 +11,7 @@ import {
 	FlexboxGrid,
 	Icon,
 } from "rsuite";
+// React Share 
 import {
 	FacebookShareButton,
 	FacebookIcon,
@@ -28,7 +29,7 @@ import {
 	WhatsappIcon,
 } from "react-share";
 
-const SharePopper = ({ show, setShow, open }) => {
+const ShareModal = ({ show, setShow, open }) => {
 	const close = () => {
 		setShow(false);
 	};
@@ -149,4 +150,4 @@ const SharePopper = ({ show, setShow, open }) => {
 	);
 };
 
-export default SharePopper;
+export default ShareModal;

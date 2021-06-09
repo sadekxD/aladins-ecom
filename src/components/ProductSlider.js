@@ -21,14 +21,11 @@ const responsive = {
 	},
 };
 
-const ProductSlider = () => {
+const ProductSlider = ({ data = [] }) => {
 	return (
 		<div style={{ marginTop: 30 }}>
-			<div
-				className="container"
-				style={{ padding: 16, borderRadius: 6, backgroundColor: "#F5F5F5" }}
-			>
-				<h4 style={{ marginLeft: 8 }}>Similar Products</h4>
+			<div className="container product-slider">
+				<h4>Similar Products</h4>
 				<Carousel
 					additionalTransfrom={0}
 					arrows
@@ -46,26 +43,22 @@ const ProductSlider = () => {
 					renderButtonGroupOutside={false}
 					renderDotsOutside={false}
 					showDots={false}
-					sliderClass=""
+					sliderClass="lsdfadsfadsf"
 					slidesToSlide={2}
 					swipeable
 					responsive={responsive}
 				>
-					<div className="" style={{ padding: "0px 4px" }}>
-						<ProductCard price={200} />
-					</div>
-					<div className="" style={{ padding: "0px 4px" }}>
-						<ProductCard price={200} />
-					</div>
-					<div className="" style={{ padding: "0px 4px" }}>
-						<ProductCard price={200} />
-					</div>
-					<div className="" style={{ padding: "0px 4px" }}>
-						<ProductCard price={200} />
-					</div>
-					<div className="" style={{ padding: "0px 4px" }}>
-						<ProductCard price={200} />
-					</div>
+					{data.map((item) => (
+						<div key={item.id} className="slider-item-wrapper">
+							<ProductCard
+								id={item.id}
+								title={item.title}
+								image={item.images[Math.floor(Math.random() * 3)]}
+								price={item.sell_price}
+								pre_price={item.regular_price}
+							/>
+						</div>
+					))}
 				</Carousel>
 			</div>
 		</div>

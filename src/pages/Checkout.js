@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Grid, Row, Col, FlexboxGrid, Button } from "rsuite";
 import CartItem from "../components/cards/CartItem";
-import EditCheckoutPopper from "../components/EditCheckoutPopper";
+import EditCheckoutModal from "../components/modals/EditCheckoutModal";
 
 const Checkout = () => {
 	const [show, setShow] = useState(false);
 	const [checkoutInfo, setCheckoutInfo] = useState({
 		username: "",
-		addresss: "",
-		mobile: "",
+		address: "",
+		phone_number: "",
 		email: "",
 	});
 
@@ -16,12 +16,10 @@ const Checkout = () => {
 		setShow(true);
 	};
 
-	console.log(checkoutInfo);
-
 	return (
 		<div>
 			<div style={{ padding: "0 .5rem" }}>
-				<EditCheckoutPopper
+				<EditCheckoutModal
 					show={show}
 					setShow={setShow}
 					checkoutInfo={checkoutInfo}
@@ -79,7 +77,7 @@ const Checkout = () => {
 													fontSize: 17,
 												}}
 											>
-												Ariful Islam
+												{checkoutInfo.username}
 											</p>
 										</Col>
 										<Col xs={24} style={{ margin: "14px 0" }}>
@@ -99,7 +97,7 @@ const Checkout = () => {
 													fontSize: 17,
 												}}
 											>
-												Moniapukur, Hathazari, Chittagong
+												{checkoutInfo.address}
 											</p>
 										</Col>
 										<Col xs={24} style={{ margin: "14px 0" }}>
@@ -119,7 +117,7 @@ const Checkout = () => {
 													fontSize: 17,
 												}}
 											>
-												+8801864530000
+												{checkoutInfo.phone_number}
 											</p>
 										</Col>
 										<Col xs={24} style={{ margin: "14px 0" }}>
@@ -139,7 +137,7 @@ const Checkout = () => {
 													fontSize: 17,
 												}}
 											>
-												ariful@gmail.com
+												{checkoutInfo.email}
 											</p>
 										</Col>
 									</Row>

@@ -1,8 +1,7 @@
 import React from "react";
 import { Grid, Row, Col, FlexboxGrid, Rate } from "rsuite";
 import ProductList from "../components/ProductList";
-
-const data = [1, 2, 3, 4, 5, 6, 7, 8];
+import { dummyData } from "../data/Products";
 
 const Profile = () => {
 	return (
@@ -70,7 +69,7 @@ const Profile = () => {
 					</Row>
 				</Grid>
 				<div className="product-container">
-					<ProductList header="Products" data={data} />
+					<ProductList header="Products" data={dummyData} />
 				</div>
 			</div>
 		</div>
