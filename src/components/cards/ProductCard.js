@@ -3,6 +3,7 @@ import { FlexboxGrid } from "rsuite";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ id, pre_price, price, title, image }) => {
+	console.log(price, pre_price);
 	return (
 		<div className="product-card">
 			<Link to={`/product/${id}`} style={{ textDecoration: "none" }}>

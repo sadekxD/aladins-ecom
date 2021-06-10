@@ -4,6 +4,7 @@ import DetailForm from "./DetailForm";
 import ImageUploader from "./Uploader";
 import AdditionalDetailsForm from "./AdditionalDetailsForm";
 import Review from "../Review";
+import SuccessModal from "../modals/SuccessModal";
 
 const CreateForm = () => {
 	const [step, setStep] = useState(0);
@@ -22,8 +23,7 @@ const CreateForm = () => {
 		availability: "",
 		location: "",
 	});
-
-	console.log(formdata);
+	const [show, setShow] = useState(false);
 
 	const handleStep = (nextStep) => {
 		setStep(nextStep < 0 ? 0 : nextStep > 3 ? 3 : nextStep);
@@ -31,6 +31,10 @@ const CreateForm = () => {
 
 	const onNext = () => handleStep(step + 1);
 	const onPrevious = () => handleStep(step - 1);
+
+	const open = () => {
+		setShow(true);
+	};
 
 	return (
 		<div
@@ -42,6 +46,7 @@ const CreateForm = () => {
 				borderRadius: 6,
 			}}
 		>
+			<SuccessModal show={show} setShow={setShow} />
 			<Grid fluid>
 				<Row>
 					<Col xs={24}>
@@ -64,13 +69,19 @@ const CreateForm = () => {
 							<Button onClick={onPrevious} disabled={step === 0}>
 								Previous
 							</Button>
-							<Button
-								onClick={onNext}
-								appearance="primary"
-								disabled={step === 3}
-							>
-								Next
-							</Button>
+							{step < 3 ? (
+								<Button
+									onClick={onNext}
+									appearance="primary"
+									disabled={step === 3}
+								>
+									Next
+								</Button>
+							) : (
+								<Button onClick={open} appearance="primary">
+									Confirm
+								</Button>
+							)}
 						</ButtonGroup>
 					</Col>
 				</Row>

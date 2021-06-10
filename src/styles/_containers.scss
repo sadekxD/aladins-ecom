@@ -119,3 +119,101 @@
 		padding: 0px 4px;
 	}
 }
+
+.product-review {
+	max-width: 800px;
+	margin: 0 auto;
+	background-color: #fff;
+	border-radius: 1rem;
+	box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+	padding: 1.5rem 1rem;
+
+	.carousel-wrapper {
+		padding: 1rem 0;
+	}
+
+	.info-header {
+		font-weight: 500;
+		font-size: 14px;
+		margin-bottom: 10px;
+	}
+
+	.product-info {
+		.info-title {
+			font-weight: 500;
+			font-size: 14px;
+		}
+
+		.info-detail-wrapper {
+			margin-top: 10px;
+			p {
+				word-wrap: break-word;
+			}
+		}
+	}
+
+	.product-variant {
+		h6 {
+			font-weight: 600;
+			font-size: 14px;
+		}
+
+		.picker {
+			width: 130px;
+			margin-top: 10px;
+		}
+	}
+
+	.seller-info {
+		margin-top: 10px;
+		.avatar-wrapper {
+			margin-right: 6px;
+		}
+
+		.name {
+			font-weight: 500;
+			font-size: 13px;
+		}
+	}
+
+	.tag-list {
+		margin-top: 10px;
+	}
+
+	.price-info {
+		margin-top: 10px;
+
+		.price {
+			font-size: 17px;
+			font-weight: 600;
+			margin-right: 6px;
+		}
+
+		.pre-price {
+			font-weight: 600;
+			font-size: 16px;
+			text-decoration: line-through;
+			color: rgba(0, 0, 0, 0.3);
+		}
+	}
+
+	.btn-group-1 {
+		margin-top: 20px;
+		margin-right: 16px;
+
+		.btn-2 {
+			margin-left: 16px;
+		}
+	}
+
+	.btn-group-2 {
+		margin-top: 20px;
+		.btn-2 {
+			margin-left: 16px;
+		}
+	}
+
+	.date-info {
+		margin-top: 10px;
+	}
+}

@@ -78,3 +78,44 @@ a {
 	/* change div to reference your elements you put in <Masonry> */
 	margin-bottom: 6px;
 }
+.rs-steps-small.rs-steps-horizontal {
+	.rs-steps-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		padding-left: 0;
+
+		.item-icon-wrapper {
+			left: 0;
+		}
+
+		.rs-steps-item-title {
+			padding: 0;
+			@media screen and (max-width: 768px) {
+				font-size: 10px;
+			}
+		}
+
+		&:not(:first-child) {
+			padding-left: 0;
+
+			.rs-steps-item-icon-wrapper {
+				left: 0;
+			}
+		}
+
+		&:last-child {
+			flex-basis: 33.33333%;
+		}
+	}
+
+	.rs-steps-item-icon-wrapper {
+		position: relative;
+	}
+
+	.rs-steps-item-title::after {
+		content: none;
+		display: none;
+	}
+}

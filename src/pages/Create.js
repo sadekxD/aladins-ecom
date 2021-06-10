@@ -4,7 +4,7 @@ import CreateForm from "../components/forms/CreateForm";
 const Create = () => {
 	return (
 		<div>
-			<div className="container" style={{ padding: "0 .5rem" }}>
+			<div className="container">
 				<CreateForm />
 			</div>
 		</div>

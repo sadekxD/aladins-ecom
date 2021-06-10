@@ -21,7 +21,8 @@ const FilterResult = () => {
 	const filteredResult = dummyData.filter((item) => {
 		return (
 			item.location.toLowerCase() === loc &&
-			(parseInt(item.sell_price) >= min && parseInt(item.sell_price)) <= max &&
+			parseInt(item.sell_price) >= min &&
+			parseInt(item.sell_price) <= max &&
 			item.product_condition.toLowerCase() === condition
 		);
 	});

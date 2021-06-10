@@ -77,38 +77,46 @@ const DetailForm = ({ formdata, setFormdata }) => {
 				<Row>
 					<Col xs={24} sm={12}>
 						<FormGroup>
-							<ControlLabel>Product Title</ControlLabel>
+							<ControlLabel>
+								Product Title
+								<span style={{ fontSize: 13, marginBottom: 4, color: "red" }}>
+									*
+								</span>
+							</ControlLabel>
 							<FormControl name="title" />
-							<HelpBlock>Required</HelpBlock>
 						</FormGroup>
 					</Col>
 					<Col xs={24} sm={12}>
 						<FormGroup>
-							<ControlLabel>Products Category</ControlLabel>
+							<ControlLabel>
+								Products Category
+								<span style={{ fontSize: 13, marginBottom: 4, color: "red" }}>
+									*
+								</span>
+							</ControlLabel>
 							<FormControl
 								name="category"
 								accepter={SelectPicker}
 								data={[
 									{
-										label: "Tyrel",
-										value: "Tyrel",
+										label: "dummy1",
+										value: "dummy1",
 										role: "Guest",
 									},
 									{
-										label: "Jaylen",
-										value: "Jaylen",
+										label: "dummy2",
+										value: "dummy2",
 										role: "Guest",
 									},
 									{
-										label: "Rogelio",
-										value: "Rogelio",
+										label: "dummy3",
+										value: "dummy3",
 										role: "Guest",
 									},
 								]}
 								searchable={false}
 								style={{ width: "100%" }}
 							/>
-							<HelpBlock>Required</HelpBlock>
 						</FormGroup>
 					</Col>
 					<Col xs={24} style={style}>
@@ -152,7 +160,12 @@ const DetailForm = ({ formdata, setFormdata }) => {
 					</Col>
 					<Col xs={24} sm={12} style={style}>
 						<FormGroup>
-							<ControlLabel>Products Condition</ControlLabel>
+							<ControlLabel>
+								Products Condition
+								<span style={{ fontSize: 13, marginBottom: 4, color: "red" }}>
+									*
+								</span>
+							</ControlLabel>
 							<FormControl
 								name="product_condition"
 								accepter={SelectPicker}
@@ -167,16 +180,25 @@ const DetailForm = ({ formdata, setFormdata }) => {
 										value: "old",
 										role: "Master",
 									},
+									{
+										label: "used",
+										value: "used",
+										role: "Master",
+									},
 								]}
 								searchable={false}
 								style={{ width: "100%" }}
 							/>
-							<HelpBlock>Required</HelpBlock>
 						</FormGroup>
 					</Col>
 					<Col xs={24} sm={12} style={style}>
 						<FormGroup>
-							<ControlLabel>Products Tag</ControlLabel>
+							<ControlLabel>
+								Products Tag{" "}
+								<span style={{ fontSize: 13, marginBottom: 4, color: "red" }}>
+									*
+								</span>
+							</ControlLabel>
 							<FormControl
 								name="tags"
 								placeholder="Tag"
@@ -185,7 +207,6 @@ const DetailForm = ({ formdata, setFormdata }) => {
 								data={items}
 								style={{ width: "100%" }}
 							/>
-							<HelpBlock>Required</HelpBlock>
 						</FormGroup>
 					</Col>
 				</Row>
