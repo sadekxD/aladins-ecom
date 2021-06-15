@@ -65,6 +65,7 @@ const DetailForm = ({ formdata, setFormdata }) => {
 	return (
 		<Form
 			fluid
+			className="detail-form"
 			model={model}
 			formValue={formdata}
 			onChange={(formValue) => {

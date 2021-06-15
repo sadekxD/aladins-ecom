@@ -68,6 +68,31 @@
 			text-align: center;
 		}
 	}
+
+	.radio-control {
+		margin-top: 20px;
+
+		.required-dot {
+			font-size: 13px;
+			margin-bottom: 4px;
+			color: red;
+		}
+
+		.radio-group {
+			margin-top: 10px;
+			border: none;
+
+			.rs-radio-checked {
+				border: 1px solid rgba(0, 0, 0, 0.3);
+			}
+
+			.thumb-img {
+				height: 100px;
+				width: 100px;
+				object-fit: cover;
+			}
+		}
+	}
 }
 
 .additional-detail-form {

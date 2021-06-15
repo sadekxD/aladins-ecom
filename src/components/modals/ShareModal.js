@@ -65,19 +65,19 @@ const ShareModal = ({ show, setShow, open }) => {
 								<FlexboxGrid justify="space-between">
 									<FlexboxGrid.Item>
 										<Button size="sm" appearance="ghost">
-											<Icon icon="file-text-o" />
+											<Icon icon="file-text-o" style={{ marginRight: 4 }} />
 											Timeline
 										</Button>
 									</FlexboxGrid.Item>
 									<FlexboxGrid.Item>
 										<Button size="sm" appearance="ghost">
-											<Icon icon="chrome" />
+											<Icon icon="chrome" style={{ marginRight: 4 }} />
 											Page
 										</Button>
 									</FlexboxGrid.Item>
 									<FlexboxGrid.Item>
 										<Button size="sm" appearance="ghost">
-											<Icon icon="file-text-o" />
+											<Icon icon="file-text-o" style={{ marginRight: 4 }} />
 											Group
 										</Button>
 									</FlexboxGrid.Item>

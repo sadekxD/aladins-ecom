@@ -1,7 +1,25 @@
-import React from "react";
-import { Form, Uploader, Icon } from "rsuite";
+import React, { useEffect } from "react";
+import {
+	Form,
+	FormGroup,
+	RadioGroup,
+	Radio,
+	Uploader,
+	Icon,
+	ControlLabel,
+} from "rsuite";
 
 const ImageUploader = ({ formdata, setFormdata }) => {
+	useEffect(() => {
+		const fileCheck = formdata.images.filter(
+			(image) => image.fileKey === formdata.thumbnail.fileKey
+		);
+
+		if (fileCheck.length === 0) {
+			setFormdata({ ...formdata, thumbnail: "" });
+		}
+	}, [formdata.images]);
+
 	return (
 		<Form fluid className="uploader">
 			<Uploader
@@ -30,6 +48,40 @@ const ImageUploader = ({ formdata, setFormdata }) => {
 					</div>
 				</div>
 			</Uploader>
+
+			{formdata.images.length !== 0 ? (
+				<FormGroup controlId="radioList" className="radio-control">
+					<ControlLabel>
+						Select Thumbnail
+						<span className="required-dot">*</span>
+					</ControlLabel>
+					<RadioGroup
+						name="radioList"
+						inline
+						appearance="picker"
+						defaultValue="A"
+						className="radio-group"
+						defaultValue={formdata.thumbnail}
+						onChange={(file) => {
+							return setFormdata({ ...formdata, thumbnail: file });
+						}}
+					>
+						{formdata.images.map((image) => {
+							return (
+								<Radio key={image.fileKey} value={image}>
+									<img
+										className="thumb-img"
+										src={URL.createObjectURL(image.blobFile)}
+										alt={image.name}
+									/>
+								</Radio>
+							);
+						})}
+					</RadioGroup>
+				</FormGroup>
+			) : (
+				""
+			)}
 		</Form>
 	);
 };

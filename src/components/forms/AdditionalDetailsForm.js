@@ -44,7 +44,9 @@ const AdditionalDetailsForm = ({ formdata, setFormdata }) => {
 					</Col>
 					<Col xs={24} sm={12}>
 						<FormGroup>
-							<ControlLabel>Sell Price</ControlLabel>
+							<ControlLabel>
+								Sell Price<span className="required-dot">*</span>
+							</ControlLabel>
 							<FormControl name="sell_price" />
 						</FormGroup>
 					</Col>
@@ -63,7 +65,9 @@ const AdditionalDetailsForm = ({ formdata, setFormdata }) => {
 					</Col>
 					<Col xs={24} sm={12} style={style}>
 						<FormGroup>
-							<ControlLabel>Availability</ControlLabel>
+							<ControlLabel>
+								Availability<span className="required-dot">*</span>
+							</ControlLabel>
 							<FormControl
 								name="availability"
 								accepter={SelectPicker}
@@ -74,7 +78,9 @@ const AdditionalDetailsForm = ({ formdata, setFormdata }) => {
 					</Col>
 					<Col xs={24} sm={12} style={style}>
 						<FormGroup>
-							<ControlLabel>Location</ControlLabel>
+							<ControlLabel>
+								Location<span className="required-dot">*</span>
+							</ControlLabel>
 							<FormControl
 								name="location"
 								placeholder="eg. Hathazari, Chittagong"

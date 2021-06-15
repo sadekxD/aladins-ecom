@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Row, Col, Steps, ButtonGroup, Button } from "rsuite";
 import DetailForm from "./DetailForm";
 import ImageUploader from "./Uploader";
@@ -16,6 +16,7 @@ const CreateForm = () => {
 		sizes: [],
 		product_condition: "",
 		tags: [],
+		thumbnail: "",
 		images: [],
 		regular_price: "",
 		sell_price: "",
@@ -24,6 +25,32 @@ const CreateForm = () => {
 		location: "",
 	});
 	const [show, setShow] = useState(false);
+	const [btnDisable, setBtnDisable] = useState(false);
+
+	useEffect(() => {
+		const {
+			title,
+			category,
+			product_condition,
+			tags,
+			images,
+			thumbnail,
+			sell_price,
+			availability,
+			location,
+		} = formdata;
+		if (step === 0 && title && category && product_condition && tags.length) {
+			setBtnDisable(false);
+		} else if (step === 1 && images.length && thumbnail) {
+			setBtnDisable(false);
+		} else if (step === 2 && sell_price && availability && location) {
+			setBtnDisable(false);
+		} else if (step === 3) {
+			setBtnDisable(true);
+		} else {
+			setBtnDisable(true);
+		}
+	}, [formdata, step]);
 
 	const handleStep = (nextStep) => {
 		setStep(nextStep < 0 ? 0 : nextStep > 3 ? 3 : nextStep);
@@ -65,7 +92,7 @@ const CreateForm = () => {
 								<Button
 									onClick={onNext}
 									appearance="primary"
-									disabled={step === 3}
+									disabled={btnDisable}
 								>
 									Next
 								</Button>

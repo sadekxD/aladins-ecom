@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FlexboxGrid } from "rsuite";
 import { Link } from "react-router-dom";
 

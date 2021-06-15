@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useQuery } from "@apollo/client";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import {
 	Navbar,
 	FlexboxGrid,
 	Button,
-	Badge,
 	Icon,
 	Form,
 	IconButton,
@@ -14,13 +12,6 @@ import {
 	Row,
 	Col,
 } from "rsuite";
-
-// Context
-import { Context } from "../App";
-
-// Query
-import { QUERY_WISHLIST_INFO } from "../queries/wishlistQueries";
-import { cartItems, wishlist } from "../cache/caches";
 
 import FilterDropdown from "./popper/FilterPopper";
 
