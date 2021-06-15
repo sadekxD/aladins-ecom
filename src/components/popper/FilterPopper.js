@@ -56,12 +56,13 @@ const FilterPopper = ({ ...rest }) => {
 
 	return (
 		<Popover {...rest} full>
-			<div style={{ padding: 8, width: 280, overflow: "hidden" }}>
+			<div className="filter-popper">
 				<Form
+					className="filter-form"
 					onChange={(val) => setFilterValue({ ...filterValue, ...val })}
 					fluid
 				>
-					<FormGroup style={{ padding: "0 5px" }}>
+					<FormGroup className="form-group">
 						<ControlLabel>Location</ControlLabel>
 						<FormControl
 							value={filterValue.location}
@@ -82,7 +83,7 @@ const FilterPopper = ({ ...rest }) => {
 								/>
 							</Col>
 							<Col xs={24}>
-								<InputGroup style={{ marginTop: 16 }}>
+								<InputGroup className="input-group">
 									<InputNumber
 										min={0}
 										max={10000}
@@ -119,28 +120,28 @@ const FilterPopper = ({ ...rest }) => {
 							</Col>
 						</Row>
 					</Grid>
-					<FormGroup style={{ padding: "0 5px", marginTop: 16 }}>
+					<FormGroup className="form-group-2">
 						<ControlLabel>Condition</ControlLabel>
 						<PreventOverflowContainer>
 							{(getContainer) => (
 								<FormControl
+									className="form-control"
 									name="condition"
 									accepter={SelectPicker}
 									value={filterValue.condition}
 									data={items}
 									searchable={false}
 									container={getContainer}
-									style={{ width: "100%", zIndex: 10000 }}
 								/>
 							)}
 						</PreventOverflowContainer>
 					</FormGroup>
 					<Button
 						onClick={handleFilter}
+						className="filter-btn"
 						appearance="ghost"
-						style={{ float: "right", marginRight: 5, color: "black" }}
 					>
-						<Icon icon="filter" appearance="ghost" />
+						<Icon className="filter-icon" icon="filter" appearance="ghost" />
 						Filter
 					</Button>
 				</Form>

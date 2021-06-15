@@ -7,7 +7,6 @@ import {
 	FormControl,
 	ControlLabel,
 	FormGroup,
-	HelpBlock,
 	SelectPicker,
 	TagPicker,
 	Schema,
@@ -51,7 +50,7 @@ const items = [
 	},
 ];
 
-const { StringType, ArrayType, NumberType } = Schema.Types;
+const { StringType, ArrayType } = Schema.Types;
 
 const model = Schema.Model({
 	title: StringType().isRequired("This field is required"),
@@ -66,7 +65,6 @@ const DetailForm = ({ formdata, setFormdata }) => {
 	return (
 		<Form
 			fluid
-			style={{ padding: "2rem 0" }}
 			model={model}
 			formValue={formdata}
 			onChange={(formValue) => {
@@ -79,9 +77,7 @@ const DetailForm = ({ formdata, setFormdata }) => {
 						<FormGroup>
 							<ControlLabel>
 								Product Title
-								<span style={{ fontSize: 13, marginBottom: 4, color: "red" }}>
-									*
-								</span>
+								<span className="required-dot">*</span>
 							</ControlLabel>
 							<FormControl name="title" />
 						</FormGroup>
@@ -90,9 +86,7 @@ const DetailForm = ({ formdata, setFormdata }) => {
 						<FormGroup>
 							<ControlLabel>
 								Products Category
-								<span style={{ fontSize: 13, marginBottom: 4, color: "red" }}>
-									*
-								</span>
+								<span className="required-dot">*</span>
 							</ControlLabel>
 							<FormControl
 								name="category"
@@ -123,7 +117,7 @@ const DetailForm = ({ formdata, setFormdata }) => {
 						<FormGroup>
 							<ControlLabel>
 								Product Detail
-								<span style={{ fontSize: 10 }}>(optional)</span>
+								<span className="optional">(optional)</span>
 							</ControlLabel>
 							<FormControl
 								name="product_detail"
@@ -162,9 +156,7 @@ const DetailForm = ({ formdata, setFormdata }) => {
 						<FormGroup>
 							<ControlLabel>
 								Products Condition
-								<span style={{ fontSize: 13, marginBottom: 4, color: "red" }}>
-									*
-								</span>
+								<span className="required-dot">*</span>
 							</ControlLabel>
 							<FormControl
 								name="product_condition"
@@ -194,10 +186,7 @@ const DetailForm = ({ formdata, setFormdata }) => {
 					<Col xs={24} sm={12} style={style}>
 						<FormGroup>
 							<ControlLabel>
-								Products Tag{" "}
-								<span style={{ fontSize: 13, marginBottom: 4, color: "red" }}>
-									*
-								</span>
+								Products Tag <span className="required-dot">*</span>
 							</ControlLabel>
 							<FormControl
 								name="tags"

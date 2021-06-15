@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
 	Grid,
@@ -10,23 +10,26 @@ import {
 	FormControl,
 	Button,
 } from "rsuite";
+import { cartItems } from "../cache/caches";
 
-const OrderSummary = () => {
+const OrderSummary = ({ total }) => {
+	const [totalItems, setTotalItems] = useState(0);
+	useEffect(() => {
+		let count = 0;
+		for (var i = 0; i < cartItems().items.length; i++) {
+			let item = cartItems().items[i];
+			count += item.qty;
+		}
+
+		setTotalItems(count);
+	}, [cartItems()]);
+
 	return (
-		<Grid
-			fluid
-			className="order-summary-container"
-			style={{
-				backgroundColor: "#fff",
-				padding: 10,
-				borderRadius: 6,
-				marginTop: 10,
-			}}
-		>
+		<Grid fluid className="order-summary-container">
 			<Row>
 				<Col xs={24}>
 					<h5 className="header">Order Summary</h5>
-					<p>Subtotal (0 items)</p>
+					<p>Subtotal ({totalItems} items)</p>
 				</Col>
 				<Col xs={24}>
 					<Form
@@ -53,15 +56,15 @@ const OrderSummary = () => {
 				<Col xs={24}>
 					<FlexboxGrid className="row" justify="space-between" align="middle">
 						<FlexboxGrid.Item className="sub-total">Subtotal</FlexboxGrid.Item>
-						<FlexboxGrid.Item>$600</FlexboxGrid.Item>
+						<FlexboxGrid.Item>${total}</FlexboxGrid.Item>
 					</FlexboxGrid>
-					<FlexboxGrid className="row" justify="space-between" align="middle">
+					{/* <FlexboxGrid className="row" justify="space-between" align="middle">
 						<FlexboxGrid.Item className="new-user">newuser150</FlexboxGrid.Item>
 						<FlexboxGrid.Item>-$150</FlexboxGrid.Item>
-					</FlexboxGrid>
+					</FlexboxGrid> */}
 					<FlexboxGrid className="row" justify="space-between" align="middle">
 						<FlexboxGrid.Item className="total">Grand Total</FlexboxGrid.Item>
-						<FlexboxGrid.Item>$450</FlexboxGrid.Item>
+						<FlexboxGrid.Item>${total}</FlexboxGrid.Item>
 					</FlexboxGrid>
 				</Col>
 				<Col xs={24}>

@@ -37,15 +37,7 @@ const CreateForm = () => {
 	};
 
 	return (
-		<div
-			style={{
-				padding: "1.2rem .5rem",
-				minHeight: 500,
-				backgroundColor: "#fff",
-				marginTop: 16,
-				borderRadius: 6,
-			}}
-		>
+		<div className="create-container">
 			<SuccessModal show={show} setShow={setShow} />
 			<Grid fluid>
 				<Row>
@@ -64,8 +56,8 @@ const CreateForm = () => {
 							step={step}
 						/>
 					</Col>
-					<Col xs={24} style={{ padding: "1rem .6rem" }}>
-						<ButtonGroup style={{ float: "right" }}>
+					<Col xs={24} className="btn-group-wrapper">
+						<ButtonGroup className="btn-group">
 							<Button onClick={onPrevious} disabled={step === 0}>
 								Previous
 							</Button>

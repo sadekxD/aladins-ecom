@@ -69,6 +69,14 @@
 	}
 }
 
+.slider-item-wrapper {
+	height: 100%;
+
+	.product-card {
+		height: 100%;
+	}
+}
+
 .cart-item {
 	padding: 1rem;
 	background: #fff;
@@ -135,6 +143,11 @@
 			i {
 				font-size: 12px;
 			}
+
+			&.wishlist,
+			&.remove {
+				margin-left: 14px;
+			}
 		}
 	}
 
@@ -147,6 +160,90 @@
 		}
 
 		.cart-item-title {
+			font-size: 14px;
+		}
+
+		.user-info {
+			.user-info-name {
+				font-size: 13px;
+			}
+		}
+	}
+}
+
+.wishlist-item {
+	padding: 1rem;
+	background: #fff;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+	.wishlist-item-image {
+		height: 100px;
+		width: 100%;
+		object-fit: cover;
+		border-radius: 6px;
+	}
+
+	.wishlist-item-title {
+		font-size: 1rem;
+		font-weight: 400;
+	}
+
+	.user-info {
+		margin-top: 10px;
+
+		.user-info-name {
+			padding-left: 10px;
+			font-weight: 400;
+			font-size: 15px;
+			color: #000;
+		}
+	}
+
+	.price-info {
+		margin-top: 10px;
+
+		.price,
+		.pre-price {
+			font-weight: 500;
+			font-size: 18px;
+		}
+
+		.pre-price {
+			text-decoration: line-through;
+			color: rgba(0, 0, 0, 0.3);
+			padding-left: 10px;
+		}
+	}
+
+	.wishlist-control {
+		margin-top: 10px;
+
+		.btn {
+			border: none;
+			color: #000;
+			border: 1px solid #000;
+			font-weight: 400;
+
+			i {
+				font-size: 12px;
+			}
+
+			&.wishlist,
+			&.remove {
+				margin-left: 14px;
+			}
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.wishlist-item-image {
+			height: 80px;
+			width: 100%;
+			object-fit: cover;
+			border-radius: 6px;
+		}
+
+		.wishlist-item-title {
 			font-size: 14px;
 		}
 

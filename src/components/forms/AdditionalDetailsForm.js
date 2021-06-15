@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
 	Grid,
 	Row,
@@ -10,49 +10,6 @@ import {
 	SelectPicker,
 	Schema,
 } from "rsuite";
-
-const items = [
-	{
-		label: "Eugenia",
-		value: "Eugenia",
-		role: "Master",
-	},
-	{
-		label: "Kariane",
-		value: "Kariane",
-		role: "Master",
-	},
-	{
-		label: "Louisa",
-		value: "Louisa",
-		role: "Master",
-	},
-	{
-		label: "Marty",
-		value: "Marty",
-		role: "Master",
-	},
-	{
-		label: "Kenya",
-		value: "Kenya",
-		role: "Master",
-	},
-	{
-		label: "Hal",
-		value: "Hal",
-		role: "Developer",
-	},
-	{
-		label: "Julius",
-		value: "Julius",
-		role: "Developer",
-	},
-	{
-		label: "Travon",
-		value: "Travon",
-		role: "Developer",
-	},
-];
 
 const { StringType, NumberType } = Schema.Types;
 
@@ -68,7 +25,7 @@ const AdditionalDetailsForm = ({ formdata, setFormdata }) => {
 	return (
 		<Form
 			fluid
-			style={{ padding: "2rem 0" }}
+			className="additional-detail-form"
 			model={model}
 			formValue={formdata}
 			onChange={(formValue) => {
@@ -80,7 +37,7 @@ const AdditionalDetailsForm = ({ formdata, setFormdata }) => {
 					<Col xs={24} sm={12}>
 						<FormGroup>
 							<ControlLabel>
-								Regular Price <span style={{ fontSize: 10 }}>(optional)</span>
+								Regular Price <span className="optional">(optional)</span>
 							</ControlLabel>
 							<FormControl name="regular_price" />
 						</FormGroup>
@@ -94,7 +51,7 @@ const AdditionalDetailsForm = ({ formdata, setFormdata }) => {
 					<Col xs={24} sm={12} style={style}>
 						<FormGroup>
 							<ControlLabel>
-								Delivery Option <span style={{ fontSize: 10 }}>(optional)</span>
+								Delivery Option <span className="optional">(optional)</span>
 							</ControlLabel>
 							<FormControl
 								name="delivery_option"

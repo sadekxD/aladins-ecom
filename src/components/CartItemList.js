@@ -2,26 +2,24 @@ import React from "react";
 import { Grid, Row, Col } from "rsuite";
 import CartItem from "./cards/CartItem";
 
-const CartItemList = () => {
+const CartItemList = ({ cartData }) => {
 	return (
-		<div
-			style={{
-				maxHeight: 500,
-				overflow: "auto",
-				marginTop: 10,
-			}}
-		>
+		<div className="cart-items-container">
 			<Grid fluid>
 				<Row>
-					<Col xs={24}>
-						<CartItem counterBtn={true} removeBtn={true} wishListBtn={true} />
-					</Col>
-					<Col xs={24}>
-						<CartItem counterBtn={true} removeBtn={true} wishListBtn={true} />
-					</Col>
-					<Col xs={24}>
-						<CartItem counterBtn={true} removeBtn={true} wishListBtn={true} />
-					</Col>
+					{cartData.map((item) => (
+						<Col
+							key={item.id + item.variants.color + item.variants.size}
+							xs={24}
+						>
+							<CartItem
+								counterBtn={true}
+								wishlistBtn={true}
+								removeBtn={true}
+								{...item}
+							/>
+						</Col>
+					))}
 				</Row>
 			</Grid>
 		</div>

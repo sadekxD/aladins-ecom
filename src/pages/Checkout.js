@@ -1,5 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useQuery } from "@apollo/client";
+import { useHistory } from "react-router-dom";
 import { Grid, Row, Col, FlexboxGrid, Button } from "rsuite";
+
+// Cache
+import { cartItems } from "../cache/caches";
+import { QUERY_CART_INFO } from "../queries/cartQueries";
+
+// Components
 import CartItem from "../components/cards/CartItem";
 import EditCheckoutModal from "../components/modals/EditCheckoutModal";
 
@@ -11,6 +19,14 @@ const Checkout = () => {
 		phone_number: "",
 		email: "",
 	});
+	const history = useHistory();
+	const { data } = useQuery(QUERY_CART_INFO);
+
+	useEffect(() => {
+		if (!cartItems().items.length) {
+			history.push("/");
+		}
+	}, [history]);
 
 	const open = () => {
 		setShow(true);
@@ -18,37 +34,27 @@ const Checkout = () => {
 
 	return (
 		<div>
-			<div style={{ padding: "0 .5rem" }}>
+			<div className="checkout-container" style={{ padding: "0 .5rem" }}>
 				<EditCheckoutModal
 					show={show}
 					setShow={setShow}
 					checkoutInfo={checkoutInfo}
 					setCheckoutInfo={setCheckoutInfo}
 				/>
-				<div
-					className="container"
-					style={{
-						marginTop: 20,
-						padding: "1.2rem .5rem",
-					}}
-				>
-					<Grid fluid style={{ backgroundColor: "#fff" }}>
-						<Row>
-							<Col xs={24} sm={24} md={14} style={{ overflow: "auto" }}>
+				<div className="container checkout">
+					<Grid fluid>
+						<Row className="row">
+							<Col className="col-1" xs={24} sm={24} md={14}>
 								<div>
-									<CartItem />
-									<CartItem />
+									{data?.cart.items.map((item) => (
+										<CartItem {...item} />
+									))}
 								</div>
 							</Col>
-							<Col
-								xs={24}
-								sm={24}
-								md={10}
-								style={{ overflow: "auto", padding: ".5rem" }}
-							>
+							<Col xs={24} sm={24} md={10} className="col-2">
 								<Grid fluid>
-									<Row>
-										<Col xs={24}>
+									<Row className="shipping-info-row">
+										<Col xs={24} className="col-1">
 											<FlexboxGrid justify="space-between" align="middle">
 												<FlexboxGrid.Item>
 													<h5>Shipping Address</h5>
@@ -60,107 +66,35 @@ const Checkout = () => {
 												</FlexboxGrid.Item>
 											</FlexboxGrid>
 										</Col>
-										<Col xs={24} style={{ margin: "14px 0" }}>
-											<h5
-												style={{
-													fontWeight: 400,
-													color: "rgba(0,0,0,.6)",
-													fontSize: 14,
-												}}
-											>
-												Name:
-											</h5>
-											<p
-												style={{
-													fontWeight: 400,
-													color: "rgba(0,0,0,.6)",
-													fontSize: 17,
-												}}
-											>
-												{checkoutInfo.username}
-											</p>
+										<Col className="col-2" xs={24}>
+											<h5>Name:</h5>
+											<p>{checkoutInfo.username}</p>
 										</Col>
-										<Col xs={24} style={{ margin: "14px 0" }}>
-											<h5
-												style={{
-													fontWeight: 400,
-													color: "rgba(0,0,0,.6)",
-													fontSize: 14,
-												}}
-											>
-												Address:
-											</h5>
-											<p
-												style={{
-													fontWeight: 400,
-													color: "rgba(0,0,0,.6)",
-													fontSize: 17,
-												}}
-											>
-												{checkoutInfo.address}
-											</p>
+										<Col className="col-3" xs={24}>
+											<h5>Address:</h5>
+											<p>{checkoutInfo.address}</p>
 										</Col>
-										<Col xs={24} style={{ margin: "14px 0" }}>
-											<h5
-												style={{
-													fontWeight: 400,
-													color: "rgba(0,0,0,.6)",
-													fontSize: 14,
-												}}
-											>
-												Mobile:
-											</h5>
-											<p
-												style={{
-													fontWeight: 400,
-													color: "rgba(0,0,0,.6)",
-													fontSize: 17,
-												}}
-											>
-												{checkoutInfo.phone_number}
-											</p>
+										<Col className="col-4" xs={24}>
+											<h5>Mobile:</h5>
+											<p>{checkoutInfo.phone_number}</p>
 										</Col>
-										<Col xs={24} style={{ margin: "14px 0" }}>
-											<h5
-												style={{
-													fontWeight: 400,
-													color: "rgba(0,0,0,.6)",
-													fontSize: 14,
-												}}
-											>
-												E-mail:
-											</h5>
-											<p
-												style={{
-													fontWeight: 400,
-													color: "rgba(0,0,0,.6)",
-													fontSize: 17,
-												}}
-											>
-												{checkoutInfo.email}
-											</p>
+										<Col className="col-5" xs={24}>
+											<h5>E-mail:</h5>
+											<p>{checkoutInfo.email}</p>
 										</Col>
 									</Row>
 								</Grid>
 							</Col>
-							<Col xs={24} style={{ padding: "10px .5rem" }}>
+							<Col xs={24} className="col-3">
 								<Grid fluid>
 									<Row>
 										<Col sm={10}>
-											<Button
-												size="lg"
-												appearance="default"
-												style={{ width: "100%", marginTop: 10 }}
-											>
+											<Button size="lg" appearance="default" className="btn">
 												Go Back
 											</Button>
 										</Col>
 										<Col sm={14}>
-											<Button
-												size="lg"
-												appearance="primary"
-												style={{ width: "100%", marginTop: 10 }}
-											>
+											<Button size="lg" appearance="primary" className="btn">
 												Proceed to Payment
 											</Button>
 										</Col>

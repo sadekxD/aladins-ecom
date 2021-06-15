@@ -27,7 +27,7 @@ const ProductList = ({ header, data = [] }) => {
 								<ProductCard
 									id={item.id}
 									title={item.title}
-									image={item.images[Math.floor(Math.random() * 3)]}
+									image={item.images[0]}
 									price={item.sell_price}
 									pre_price={item.regular_price}
 								/>

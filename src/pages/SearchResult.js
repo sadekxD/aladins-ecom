@@ -14,7 +14,7 @@ const SearchResult = () => {
 
 	const searchedResult = dummyData.filter(
 		(item) =>
-			item.title.toLowerCase().search(query.get("search").toLowerCase()) != -1
+			item.title.toLowerCase().search(query.get("search").toLowerCase()) !== -1
 	);
 
 	return (

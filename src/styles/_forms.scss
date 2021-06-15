@@ -23,3 +23,63 @@
 		font-weight: 500;
 	}
 }
+
+.create-container {
+	padding: 1.2rem 0.5rem;
+	min-height: 500px;
+	background-color: #fff;
+	margin-top: 16px;
+	border-radius: 6px;
+
+	.btn-group-wrapper {
+		padding: 1rem 0.6rem;
+
+		.btn-group {
+			float: right;
+		}
+	}
+}
+
+.detail-form {
+	padding: 2rem 0;
+
+	.required-dot {
+		font-size: 13px;
+		margin-bottom: 4px;
+		color: red;
+	}
+
+	.optional {
+		font-size: 10px;
+	}
+}
+
+.uploader {
+	.upload-box {
+		height: 280px;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+
+		.upload-text {
+			font-size: 16px;
+			margin-top: 10px;
+			text-align: center;
+		}
+	}
+}
+
+.additional-detail-form {
+	padding: 2rem 0;
+
+	.required-dot {
+		font-size: 13px;
+		margin-bottom: 4px;
+		color: red;
+	}
+
+	.optional {
+		font-size: 10px;
+	}
+}

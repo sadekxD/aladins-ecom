@@ -3,12 +3,15 @@ import { Form, Uploader, Icon } from "rsuite";
 
 const ImageUploader = ({ formdata, setFormdata }) => {
 	return (
-		<Form fluid>
+		<Form fluid className="uploader">
 			<Uploader
+				multiple
+				listType="picture-text"
 				autoUpload={false}
 				draggable
 				removable={true}
 				accept="Image/*"
+				fileList={formdata.images}
 				onChange={(file) =>
 					setFormdata({
 						...formdata,
@@ -16,19 +19,11 @@ const ImageUploader = ({ formdata, setFormdata }) => {
 					})
 				}
 			>
-				<div
-					style={{
-						height: 280,
-						display: "flex",
-						alignItems: "center",
-						flexDirection: "column",
-						justifyContent: "center",
-					}}
-				>
+				<div className="upload-box">
 					<div>
 						<Icon icon="plus" size="5x" />
 					</div>
-					<div style={{ fontSize: 16, marginTop: 10, textAlign: "center" }}>
+					<div className="upload-text">
 						<div>Drag & Drop Your Image</div>
 						<div>OR</div>
 						<div>Upload Your Image</div>

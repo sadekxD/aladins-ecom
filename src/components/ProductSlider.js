@@ -25,7 +25,7 @@ const ProductSlider = ({ data = [] }) => {
 	return (
 		<div style={{ marginTop: 30 }}>
 			<div className="container product-slider">
-				<h4>Similar Products</h4>
+				<h5 className="header">Similar Products</h5>
 				<Carousel
 					additionalTransfrom={0}
 					arrows
@@ -53,7 +53,7 @@ const ProductSlider = ({ data = [] }) => {
 							<ProductCard
 								id={item.id}
 								title={item.title}
-								image={item.images[Math.floor(Math.random() * 3)]}
+								image={item.images[0]}
 								price={item.sell_price}
 								pre_price={item.regular_price}
 							/>

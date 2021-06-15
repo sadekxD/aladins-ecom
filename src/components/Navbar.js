@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useQuery } from "@apollo/client";
 import { Link, useHistory } from "react-router-dom";
 import {
 	Navbar,
 	FlexboxGrid,
 	Button,
+	Badge,
 	Icon,
 	Form,
 	IconButton,
@@ -12,17 +14,28 @@ import {
 	Row,
 	Col,
 } from "rsuite";
+
+// Context
+import { Context } from "../App";
+
+// Query
+import { QUERY_WISHLIST_INFO } from "../queries/wishlistQueries";
+import { cartItems, wishlist } from "../cache/caches";
+
 import FilterDropdown from "./popper/FilterPopper";
 
 const NavbarC = () => {
 	const [searchValue, setSearchValue] = useState({ search: "" });
+
 	const history = useHistory();
 
 	const handleSearch = (e) => {
-		history.push({
-			pathname: "/search",
-			search: `?search=${searchValue.search}`,
-		});
+		if (searchValue.search) {
+			history.push({
+				pathname: "/search",
+				search: `?search=${searchValue.search}`,
+			});
+		}
 	};
 
 	return (
@@ -50,6 +63,7 @@ const NavbarC = () => {
 													</FlexboxGrid.Item>
 													<FlexboxGrid.Item>
 														<IconButton
+															onClick={handleSearch}
 															className="btn"
 															appearance="ghost"
 															icon={<Icon icon="search" />}

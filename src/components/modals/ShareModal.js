@@ -11,7 +11,7 @@ import {
 	FlexboxGrid,
 	Icon,
 } from "rsuite";
-// React Share 
+// React Share
 import {
 	FacebookShareButton,
 	FacebookIcon,
@@ -43,8 +43,7 @@ const ShareModal = ({ show, setShow, open }) => {
 			>
 				<Modal.Header>
 					<Modal.Title>
-						<Icon icon="share-alt" style={{ marginRight: 10 }} /> Share the
-						product on
+						<Icon icon="share-alt" /> Share the product on
 					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
@@ -66,19 +65,19 @@ const ShareModal = ({ show, setShow, open }) => {
 								<FlexboxGrid justify="space-between">
 									<FlexboxGrid.Item>
 										<Button size="sm" appearance="ghost">
-											<Icon icon="file-text-o" style={{ marginRight: 10 }} />
+											<Icon icon="file-text-o" />
 											Timeline
 										</Button>
 									</FlexboxGrid.Item>
 									<FlexboxGrid.Item>
 										<Button size="sm" appearance="ghost">
-											<Icon icon="chrome" style={{ marginRight: 10 }} />
+											<Icon icon="chrome" />
 											Page
 										</Button>
 									</FlexboxGrid.Item>
 									<FlexboxGrid.Item>
 										<Button size="sm" appearance="ghost">
-											<Icon icon="file-text-o" style={{ marginRight: 10 }} />
+											<Icon icon="file-text-o" />
 											Group
 										</Button>
 									</FlexboxGrid.Item>

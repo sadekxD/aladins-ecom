@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 
 // Styles
 import "rsuite/dist/styles/rsuite-default.css";
@@ -6,6 +6,9 @@ import "./styles/style.scss";
 
 // Router
 import { Route, Switch } from "react-router-dom";
+
+// Provider
+import { Provider } from "./providers/Provider";
 
 // Pages and Components
 import Home from "./pages/Home";
@@ -21,44 +24,51 @@ import FilterResult from "./pages/FilterResult";
 import CategoryResult from "./pages/CategoryResult";
 import Profile from "./pages/Profile";
 
+export const Context = createContext(null);
+
 const App = () => {
+	const [totalItems, setTotalItems] = useState(0);
 	return (
-		<div>
-			<Header />
-			<Navbar />
-			<Switch>
-				<Route exact path="/">
-					<Home />
-				</Route>
-				<Route exact path="/product/:id">
-					<Detail />
-				</Route>
-				<Route exact path="/cart">
-					<Cart />
-				</Route>
-				<Route exact path="/create">
-					<Create />
-				</Route>
-				<Route exact path="/wishlist">
-					<WishList />
-				</Route>
-				<Route exact path="/checkout">
-					<Checkout />
-				</Route>
-				<Route exact path="/search">
-					<SearchResult />
-				</Route>
-				<Route exact path="/filter">
-					<FilterResult />
-				</Route>
-				<Route exact path="/category">
-					<CategoryResult />
-				</Route>
-				<Route exact path="/profile">
-					<Profile />
-				</Route>
-			</Switch>
-		</div>
+		<Provider>
+			<Context.Provider value={{ totalItems, setTotalItems }}>
+				<div>
+					<Header />
+					<Navbar />
+					<Switch>
+						<Route exact path="/">
+							<Home />
+						</Route>
+						<Route exact path="/product/:id">
+							<Detail />
+						</Route>
+						<Route exact path="/cart">
+							<Cart />
+						</Route>
+						<Route exact path="/create">
+							<Create />
+						</Route>
+						<Route exact path="/wishlist">
+							<WishList />
+						</Route>
+						<Route exact path="/checkout">
+							<Checkout />
+						</Route>
+						<Route exact path="/search">
+							<SearchResult />
+						</Route>
+						<Route exact path="/filter">
+							<FilterResult />
+						</Route>
+						<Route exact path="/category">
+							<CategoryResult />
+						</Route>
+						<Route exact path="/profile">
+							<Profile />
+						</Route>
+					</Switch>
+				</div>
+			</Context.Provider>
+		</Provider>
 	);
 };
 
