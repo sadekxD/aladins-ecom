@@ -13,6 +13,8 @@ import {
 	Icon,
 	SelectPicker,
 	Rate,
+	RadioGroup,
+	Radio,
 } from "rsuite";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -122,6 +124,8 @@ const ProductDetail = ({ productData }) => {
 		setShow(true);
 	};
 
+	console.log(variants);
+
 	return (
 		<div className="product-detail">
 			<ShareModal show={show} setShow={setShow} />
@@ -158,35 +162,59 @@ const ProductDetail = ({ productData }) => {
 										justify="space-between"
 									>
 										{product.colors.length !== 0 ? (
-											<FlexboxGrid.Item>
+											<FlexboxGrid.Item className="color-variant">
 												<h6>Colors:</h6>
-												<SelectPicker
-													className="picker"
-													searchable={false}
-													onChange={(val) =>
-														setVariants({ ...variants, color: val })
+
+												<RadioGroup
+													name="radioList"
+													inline
+													appearance="picker"
+													defaultValue="A"
+													className="radio-group"
+													defaultValue={variants.color}
+													onChange={(color) =>
+														setVariants({ ...variants, color: color })
 													}
-													data={product.colors.map((color) => {
-														return { label: color, value: color };
+												>
+													{product.colors.map((color) => {
+														return (
+															<Radio key={color} value={color}>
+																<div
+																	className="v-option"
+																	style={{
+																		backgroundColor: color,
+																	}}
+																></div>
+															</Radio>
+														);
 													})}
-												/>
+												</RadioGroup>
 											</FlexboxGrid.Item>
 										) : (
 											""
 										)}
 										{product.sizes.length !== 0 ? (
-											<FlexboxGrid.Item>
+											<FlexboxGrid.Item className="size-variant">
 												<h6>Sizes:</h6>
-												<SelectPicker
-													className="picker"
-													searchable={false}
-													onChange={(val) =>
-														setVariants({ ...variants, size: val })
+												<RadioGroup
+													name="radioList"
+													inline
+													appearance="picker"
+													defaultValue="A"
+													className="radio-group"
+													defaultValue={variants.color}
+													onChange={(size) =>
+														setVariants({ ...variants, size: size })
 													}
-													data={product.sizes.map((size) => {
-														return { label: size, value: size };
+												>
+													{product.sizes.map((size) => {
+														return (
+															<Radio key={size} value={size}>
+																<div className="v-option">{size}</div>
+															</Radio>
+														);
 													})}
-												/>
+												</RadioGroup>
 											</FlexboxGrid.Item>
 										) : (
 											""
@@ -227,7 +255,7 @@ const ProductDetail = ({ productData }) => {
 											{product.sell_price}
 										</FlexboxGrid.Item>
 										<FlexboxGrid.Item className="pre-price">
-											{product.regular_price}
+											{product.regular_price && `$${product.regular_price}`}
 										</FlexboxGrid.Item>
 									</FlexboxGrid>
 

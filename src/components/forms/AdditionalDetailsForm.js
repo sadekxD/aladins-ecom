@@ -71,6 +71,18 @@ const AdditionalDetailsForm = ({ formdata, setFormdata }) => {
 							<FormControl
 								name="availability"
 								accepter={SelectPicker}
+								data={[
+									{
+										label: "yes",
+										value: "yes",
+										role: "Guest",
+									},
+									{
+										label: "no",
+										value: "no",
+										role: "Guest",
+									},
+								]}
 								searchable={false}
 								style={{ width: "100%" }}
 							/>

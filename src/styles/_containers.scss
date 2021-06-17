@@ -47,6 +47,81 @@
 				padding: 1rem 0;
 			}
 
+			.product-variant {
+				.color-variant {
+					.radio-group {
+						border: none;
+
+						.rs-radio-checked {
+							border-radius: 4px;
+
+							.v-option {
+								padding: 2px;
+							}
+
+							.rs-radio-checker {
+								label {
+									padding: 4px;
+									border: 1px solid rgba(0, 0, 0, 0.3);
+								}
+							}
+						}
+
+						label {
+							padding: 0;
+							margin-right: 8px;
+						}
+
+						.v-option {
+							height: 30px;
+							width: 30px;
+							border-radius: 4px;
+						}
+					}
+				}
+
+				.size-variant {
+					.radio-group {
+						border: none;
+
+						.rs-radio-checked {
+							border-radius: 4px;
+
+							* {
+								color: #fff;
+							}
+
+							.v-option {
+								border: none;
+								background-color: #00acff;
+							}
+
+							.rs-radio-checker {
+								border-radius: 4px;
+							}
+						}
+
+						label {
+							padding: 0;
+							margin-right: 8px;
+						}
+
+						.v-option {
+							height: 30px;
+							width: 30px;
+							border-radius: 4px;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							font-size: 1.3rem;
+							font-weight: 500;
+							// border: 2px solid rgba(0, 0, 0, 0.3);
+							box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+						}
+					}
+				}
+			}
+
 			.rating-wrapper {
 				padding-left: 6px;
 			}
@@ -191,11 +266,79 @@
 		h6 {
 			font-weight: 600;
 			font-size: 14px;
+			margin-bottom: 10px;
+		}
+		.color-variant {
+			.radio-group {
+				border: none;
+
+				.rs-radio-checked {
+					border-radius: 4px;
+
+					.v-option {
+						padding: 2px;
+					}
+
+					.rs-radio-checker {
+						label {
+							padding: 4px;
+							border: 1px solid rgba(0, 0, 0, 0.3);
+						}
+					}
+				}
+
+				label {
+					padding: 0;
+					margin-right: 8px;
+				}
+
+				.v-option {
+					height: 30px;
+					width: 30px;
+					border-radius: 4px;
+				}
+			}
 		}
 
-		.picker {
-			width: 130px;
-			margin-top: 10px;
+		.size-variant {
+			.radio-group {
+				border: none;
+
+				.rs-radio-checked {
+					border-radius: 4px;
+
+					* {
+						color: #fff;
+					}
+
+					.v-option {
+						border: none;
+						background-color: #00acff;
+					}
+
+					.rs-radio-checker {
+						border-radius: 4px;
+					}
+				}
+
+				label {
+					padding: 0;
+					margin-right: 8px;
+				}
+
+				.v-option {
+					height: 30px;
+					width: 30px;
+					border-radius: 4px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-size: 1.3rem;
+					font-weight: 500;
+					// border: 2px solid rgba(0, 0, 0, 0.3);
+					box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+				}
+			}
 		}
 	}
 

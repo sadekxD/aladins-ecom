@@ -15,7 +15,7 @@ export const dummyData = [
 			"https://i.insider.com/5cbf5a3efa99af28517a2af2?width=1024&format=jpeg",
 		],
 		sell_price: 200,
-		regular_price: 220,
+		regular_price: "",
 		delivery_option: "",
 		availability: "",
 		location: "Chittagong",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
 	Grid,
 	Row,
@@ -133,9 +133,12 @@ const DetailForm = ({ formdata, setFormdata }) => {
 							<FormControl
 								name="colors"
 								placeholder="Colors"
-								creatable
 								accepter={TagPicker}
-								data={items}
+								data={[
+									{ label: "Red", value: "red" },
+									{ label: "Blue", value: "blue" },
+									{ label: "Yellow", value: "yellow" },
+								]}
 								style={{ width: "100%" }}
 							/>
 						</FormGroup>
@@ -148,7 +151,23 @@ const DetailForm = ({ formdata, setFormdata }) => {
 								placeholder="Sizes"
 								creatable
 								accepter={TagPicker}
-								data={items}
+								data={[
+									{
+										label: "S",
+										value: "S",
+										role: "Master",
+									},
+									{
+										label: "M",
+										value: "M",
+										role: "Master",
+									},
+									{
+										label: "L",
+										value: "L",
+										role: "Master",
+									},
+								]}
 								style={{ width: "100%" }}
 							/>
 						</FormGroup>

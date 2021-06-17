@@ -7,9 +7,8 @@ import {
 	Avatar,
 	TagGroup,
 	Tag,
-	Button,
-	Icon,
-	SelectPicker,
+	RadioGroup,
+	Radio,
 	Rate,
 } from "rsuite";
 import { Carousel } from "react-responsive-carousel";
@@ -49,29 +48,51 @@ const Review = ({ formdata }) => {
 
 							<FlexboxGrid className="product-variant" justify="space-between">
 								{formdata.colors.length !== 0 ? (
-									<FlexboxGrid.Item>
+									<FlexboxGrid.Item className="color-variant">
 										<h6>Colors:</h6>
-										<SelectPicker
-											className="picker"
-											searchable={false}
-											data={formdata.colors.map((color) => {
-												return { label: color, value: color };
+
+										<RadioGroup
+											name="radioList"
+											inline
+											appearance="picker"
+											defaultValue="A"
+											className="radio-group"
+										>
+											{formdata.colors.map((color) => {
+												return (
+													<Radio key={color} value={color}>
+														<div
+															className="v-option"
+															style={{
+																backgroundColor: color,
+															}}
+														></div>
+													</Radio>
+												);
 											})}
-										/>
+										</RadioGroup>
 									</FlexboxGrid.Item>
 								) : (
 									""
 								)}
 								{formdata.sizes.length !== 0 ? (
-									<FlexboxGrid.Item>
+									<FlexboxGrid.Item className="size-variant">
 										<h6>Sizes:</h6>
-										<SelectPicker
-											className="picker"
-											searchable={false}
-											data={formdata.sizes.map((size) => {
-												return { label: size, value: size };
+										<RadioGroup
+											name="radioList"
+											inline
+											appearance="picker"
+											defaultValue="A"
+											className="radio-group"
+										>
+											{formdata.sizes.map((size) => {
+												return (
+													<Radio key={size} value={size}>
+														<div className="v-option">{size}</div>
+													</Radio>
+												);
 											})}
-										/>
+										</RadioGroup>
 									</FlexboxGrid.Item>
 								) : (
 									""
@@ -111,7 +132,7 @@ const Review = ({ formdata }) => {
 									${formdata.sell_price}
 								</FlexboxGrid.Item>
 								<FlexboxGrid.Item className="pre-price">
-									${formdata.regular_price}
+									{formdata.regular_price && `$${formdata.regular_price}`}
 								</FlexboxGrid.Item>
 							</FlexboxGrid>
 
@@ -123,7 +144,7 @@ const Review = ({ formdata }) => {
 								))}
 							</TagGroup>
 
-							<FlexboxGrid>
+							{/* <FlexboxGrid>
 								<FlexboxGrid.Item className="btn-group-1">
 									<FlexboxGrid>
 										<FlexboxGrid.Item className="btn-1">
@@ -156,7 +177,7 @@ const Review = ({ formdata }) => {
 							</FlexboxGrid>
 							<p className="date-info">
 								Listed two weeks ago in dhaka Bangladesh
-							</p>
+							</p> */}
 						</div>
 					</Col>
 				</Row>
